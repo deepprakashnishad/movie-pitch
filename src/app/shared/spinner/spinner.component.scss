@@ -1,0 +1,102 @@
+.hidden {
+  visibility: hidden;
+}
+.loader-overlay {
+  position: fixed;
+  width: 100%;
+  z-index: 500000;
+  top: 0;
+}
+
+.spinner-overlay {
+  position: fixed;
+  z-index: 500000;
+  top: 40%;
+  left: 50%;
+}
+
+.message-container{
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  background: #080083;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #080083, #00ab74);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #080083, #00ab74);
+  margin-top: 16px;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  height: calc(100vh);
+  width: 100%;
+  background: #2217c599;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2217c599, #0eeba473);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2217c599, #0eeba473);
+  z-index: 99999;
+}
+
+.loader {
+  width: 8em;
+  height: 8em;
+  font-size: 16px;
+  box-sizing: border-box;
+  border-top: 0.3em solid hotpink;
+  border-radius: 50%;
+  position: relative;
+  animation: rotating 4s ease-in-out infinite;
+  --direction: 1;
+  background: #2217c5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2217c5, #0eeba4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2217c5, #0eeba4);
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  box-sizing: border-box;
+  top: -0.2em;
+}
+
+.loader::before {
+  border-top: 0.3em solid dodgerblue;
+  transform: rotate(120deg);
+}
+
+.loader::after {
+  border-top: 0.3em solid gold;
+  transform: rotate(240deg);
+}
+
+.loader span {
+  position: absolute;
+  color: white;
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  line-height: 10em;
+  font-family: sans-serif;
+  animation: rotating 2s linear infinite;
+  --direction: -1;
+}
+
+@keyframes rotating {
+  50% {
+      transform: rotate(calc(180deg * var(--direction)));
+  }
+
+  100% {
+      transform: rotate(calc(360deg * var(--direction)));
+  }
+}
+
+.text-center{
+  text-align: center;
+  width: 100%;
+}
